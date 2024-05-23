@@ -8,7 +8,7 @@ import viteLogo from '/vite.svg'
  * @slot - This element has a slot
  * @csspart button - The button
  */
-export class MyElement2 extends LitElement {
+export class MyElement extends LitElement {
   static get properties() {
     return {
       /**
@@ -128,4 +128,4 @@ export class MyElement2 extends LitElement {
   }
 }
 
-window.customElements.define('my-element', MyElement2)
+window.customElements.define('my-element', MyElement)
