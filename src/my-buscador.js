@@ -31,16 +31,20 @@ export class MyBuscador extends LitElement {
 
   render() {
     return html`
-    <label for="search">Buscador de peliculas</label>
-    <input type="text" name="search" id="search"  @change="${this.buscarPellicula}">
-    </div class="cards_peliculas">
+    <div class="form-group">
+
+      <label for="search">Buscador de peliculas</label>
+      <input type="text" name="search" id="search"  @change="${this.buscarPellicula}">
+
+    </div>
+    <div class="cards_peliculas">
     
         ${this.dataPelicula.map(item => html`
             <div class="card">
               <div class="Info__Pelicula">
                 <h3>${item['#TITLE']}</h3>
-                <small>año pelicula</small>
-                <p>Lorem ipsum dolor AdminSite</p>
+                <small>${item['#YEAR']}</small>
+                <img src="${item['#IMG_POSTER']}">
               </div>
             </div>
         
@@ -57,17 +61,50 @@ export class MyBuscador extends LitElement {
 
   static get styles() {
     return css`
-    .cards_peliculas{
+    .cards_peliculas {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      flex-wrap: wrap;
-    }
+      
+      width: 100%;
+      
+      padding: 9px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 2px 4px 10px 0px #0000004f;
+      
+  }
     .card{
       background: white;
-      border: solid 1px black;
+      /* border: solid 1px black; */
       width: 22em;
       padding: 1em;
+      box-shadow: 4px -1px 7px 0px #00000061;
+      border-radius: 5px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1em;
+    margin-top: 2em;
+  }
+
+  .Info__Pelicula img {
+    width: auto;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+  .Info__Pelicula img {
+    display: flex;
+    fle-direction: column;
+  }
+
+  }
     }
   
 * {
